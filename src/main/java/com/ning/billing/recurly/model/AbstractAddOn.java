@@ -94,15 +94,14 @@ public class AbstractAddOn extends RecurlyObject {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("AbstractAddOn{");
-        sb.append("addOnCode='").append(addOnCode).append('\'');
-        sb.append("measuredUnitId='").append(measuredUnitId).append('\'');
-        sb.append("usageType='").append(usageType).append('\'');
-        sb.append("usagePercentage=").append(usagePercentage);
-        sb.append(", revenueScheduleType='").append(revenueScheduleType).append('\'');
-        sb.append(", tiers=").append(tiers);
-        sb.append('}');
-        return sb.toString();
+        String sb = "AbstractAddOn{" + "addOnCode='" + addOnCode + '\'' +
+                "measuredUnitId='" + measuredUnitId + '\'' +
+                "usageType='" + usageType + '\'' +
+                "usagePercentage=" + usagePercentage +
+                ", revenueScheduleType='" + revenueScheduleType + '\'' +
+                ", tiers=" + tiers +
+                '}';
+        return sb;
     }
 
     @Override

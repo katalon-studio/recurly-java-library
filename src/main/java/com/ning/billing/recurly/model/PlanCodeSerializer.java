@@ -29,7 +29,7 @@ public class PlanCodeSerializer extends StdSerializer<PlanCode> {
         this(null);
     }
 
-    public PlanCodeSerializer(final Class<PlanCode> t) {
+    protected PlanCodeSerializer(Class<PlanCode> t) {
         super(t);
     }
 

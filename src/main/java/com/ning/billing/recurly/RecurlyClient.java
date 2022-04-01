@@ -1732,7 +1732,7 @@ public class RecurlyClient {
      * <p>
      * Reactivate a canceled item.
      *
-     * @param item Item object
+     * @param itemCode Item object
      * @return Item
      */
     public Item reactivateItem(final String itemCode) {
@@ -2239,7 +2239,7 @@ public class RecurlyClient {
      * @return The {@link GiftCard} object as identified by the passed in id
      */
     public GiftCard getGiftCard(final Long giftCardId) {
-        return doGET(GiftCards.GIFT_CARDS_RESOURCE + "/" + Long.toString(giftCardId), GiftCard.class);
+        return doGET(GiftCards.GIFT_CARDS_RESOURCE + "/" + giftCardId, GiftCard.class);
     }
 
     /**
@@ -2807,9 +2807,7 @@ public class RecurlyClient {
         final String entityString;
         try {
             entityString = EntityUtils.toString(entity, Charsets.UTF_8);
-        } catch (ParseException e) {
-            return "";
-        } catch (IOException e) {
+        } catch (ParseException | IOException e) {
             return "";
         }
         return entityString == null ? "" : entityString;
@@ -2870,14 +2868,8 @@ public class RecurlyClient {
                     Thread.currentThread().getContextClassLoader(),
                     RecurlyClient.class.getClassLoader()).getResource(GIT_PROPERTIES_FILE);
 
-            Reader reader = null;
-            try {
-                reader = new InputStreamReader(resourceURL.openStream(), Charsets.UTF_8);
+            try (Reader reader = new InputStreamReader(resourceURL.openStream(), Charsets.UTF_8)) {
                 gitRepositoryState.load(reader);
-            } finally {
-                if (reader != null) {
-                    reader.close();
-                }
             }
 
             final String version = MoreObjects.firstNonNull(getVersionFromGitRepositoryState(gitRepositoryState), defaultVersion);
