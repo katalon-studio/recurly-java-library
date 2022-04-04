@@ -25,7 +25,7 @@
     <groupId>com.katalon</groupId>
     <artifactId>recurly-java-library</artifactId>
     <packaging>jar</packaging>
-    <version>0.109.1-SNAPSHOT</version>
+    <version>0.109.1</version>
     <name>Recurly Java library</name>
     <description>Java library for Recurly</description>
     <url>https://github.com/katalon-studio/recurly-java-library</url>
@@ -61,7 +61,8 @@
         <connection>scm:git:git://github.com/katalon-studio/recurly-java-library.git</connection>
         <developerConnection>scm:git:git@github.com:katalon-studio/recurly-java-library.git</developerConnection>
         <url>https://github.com/katalon-studio/recurly-java-library/tree/master</url>
-    </scm>
+      <tag>recurly-java-library-0.109.1</tag>
+  </scm>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jackson.version>2.13.1</jackson.version>
